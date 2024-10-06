@@ -1,0 +1,6 @@
+@Psigest_HostAddress = http://localhost:5027
+
+GET {{Psigest_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
