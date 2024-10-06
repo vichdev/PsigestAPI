@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Psigest.Application\Psigest.Application.csproj" />
+    <ProjectReference Include="..\Psigest.Domain\Psigest.Domain.csproj" />
+    <ProjectReference Include="..\Psigest.Infrastructure.Data\Psigest.Infrastructure.Data.csproj" />
+  </ItemGroup>
+
 </Project>
