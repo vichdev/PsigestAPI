@@ -6,12 +6,11 @@ services:
       dockerfile: Psigest/Dockerfile
   database:
     container_name: Database
-    image: mysql:latest
+    image: mcr.microsoft.com/mssql/server:2022-latest
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: password 
-      MYSQL_DATABASE: Psigest
-      MYSQL_USER: vichdev
-      MYSQL_PASSWORD: password
+      - ACCEPT_EULA=Y 
+      - MSSQL_SA_PASSWORD=Password@123 
+      - MSSQL_PID=Express
     ports:
-      - "3306:3306"  
+      - "1433:1433"
