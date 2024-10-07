@@ -10,13 +10,12 @@ public sealed class Clinic(string name, string address) : BaseEntity
     public string Address { get; private set; } = address;
     public ICollection<HealthInsurance> HealthInsurances { get; set; } = [];
 
-    public void Update(string name, string address)
+    public void Update(Clinic clinic)
     {
-        Validate(name, address);
+        Validate(clinic.Name, clinic.Address);
 
-        Name = name;
-        Address = address;
-
+        Name = clinic.Name;
+        Address = clinic.Address;
     }
 
     private void Validate(string name, string address)

@@ -1,4 +1,4 @@
-namespace CleanArchMvc.Domain.Account;
+namespace Psigest.Domain.Account;
 
 public interface ISeedUserRoleInitial
 {
