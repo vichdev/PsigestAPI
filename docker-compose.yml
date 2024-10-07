@@ -1,0 +1,17 @@
+services:
+  psigest:
+    image: ${DOCKER_REGISTRY-}psigest
+    build:
+      context: .
+      dockerfile: Psigest/Dockerfile
+  database:
+    container_name: Database
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password 
+      MYSQL_DATABASE: Psigest
+      MYSQL_USER: vichdev
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"  
