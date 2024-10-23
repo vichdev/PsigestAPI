@@ -8,8 +8,7 @@ public sealed class HealthInsurance(string name, string imageUrl) : BaseEntity
 {
     public string Name { get; private set; } = name;
     public string ImageUrl { get; private set; } = imageUrl;
-    public Guid? ClinicId { get; set; }
-    public Clinic? Clinic { get; set; }
+    public ICollection<Clinic> Clinics { get; set; } = [];
 
     public void Update(HealthInsurance healthInsurance)
     {
@@ -17,7 +16,6 @@ public sealed class HealthInsurance(string name, string imageUrl) : BaseEntity
 
         Name = healthInsurance.Name;
         ImageUrl = healthInsurance.ImageUrl;
-        ClinicId = healthInsurance.ClinicId;
     }
 
     private void Validate(string name, string imageUrl)

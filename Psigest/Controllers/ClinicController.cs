@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Psigest.Application.DTO;
+using Psigest.Application.DTO.Clinic;
 using Psigest.Application.Interface;
 
 namespace Psigest.Controllers;
@@ -31,7 +31,7 @@ public class ClinicController(IClinicService clinicService) : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateClinic(ClinicDto clinicDto)
+    public async Task<IActionResult> CreateClinic(ClinicCreateDTO clinicDto)
     {
         var clinic = await _clinicService.AddClinicAsync(clinicDto);
 
@@ -39,7 +39,7 @@ public class ClinicController(IClinicService clinicService) : ControllerBase
     }
 
     [HttpPut]
-    public async Task<IActionResult> UpdateClinic(ClinicDto clinicDto)
+    public async Task<IActionResult> UpdateClinic(ClinicUpdateDTO clinicDto)
     {
         var clinic = await _clinicService.UpdateClinicAsync(clinicDto);
 

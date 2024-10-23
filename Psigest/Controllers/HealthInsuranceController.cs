@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Psigest.Application.DTO;
+using Psigest.Application.DTO.HealthInsurance;
 using Psigest.Application.Interface;
 
 namespace Psigest.Controllers;
@@ -27,7 +27,7 @@ public class HealthInsuranceController(IHealthInsuranceService healthInsuranceSe
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateHealthInsurance(HealthInsuranceDto healthInsuranceDto)
+    public async Task<IActionResult> CreateHealthInsurance(HealthInsuranceCreateDTO healthInsuranceDto)
     {
         var healthInsurance = await _healthInsuranceService.CreateHealthInsurance(healthInsuranceDto);
 
@@ -35,7 +35,7 @@ public class HealthInsuranceController(IHealthInsuranceService healthInsuranceSe
     }
 
     [HttpPut]
-    public async Task<IActionResult> UpdateHealthInsurance(HealthInsuranceDto healthInsuranceDto)
+    public async Task<IActionResult> UpdateHealthInsurance(HealthInsuranceUpdateDTO healthInsuranceDto)
     {
         var healthInsurance = await _healthInsuranceService.UpdateHealthInsurance(healthInsuranceDto);
 

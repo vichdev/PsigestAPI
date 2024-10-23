@@ -9,9 +9,16 @@ public class ClinicRepository(ApplicationDbContext context) : IClinicRepository
 
     private readonly ApplicationDbContext _context = context;
 
-    public async Task<Clinic> CreateAsync(Clinic clinic)
+    public async Task<Clinic> CreateAsync(Clinic clinic, IEnumerable<Guid>? healthInsurancesIds)
     {
+        var healthInsurances = await _context.HealthInsurances
+        .Where(hi => healthInsurancesIds.Contains(hi.Id))
+        .ToListAsync();
+
+        clinic.HealthInsurances = healthInsurances;
+
         _context.Add(clinic);
+
         await _context.SaveChangesAsync();
         return clinic;
     }

@@ -10,7 +10,5 @@ public class HealthInsuranceMap : BaseEntityMap<HealthInsurance>
         base.Configure(builder);
 
         builder.Property(b => b.Name).IsRequired().HasMaxLength(50);
-
-        builder.HasOne(b => b.Clinic).WithMany(b => b.HealthInsurances).HasForeignKey(b => b.ClinicId);
     }
 }

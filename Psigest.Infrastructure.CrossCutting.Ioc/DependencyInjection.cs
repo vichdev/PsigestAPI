@@ -31,7 +31,7 @@ public static class DependencyInjection
         AddDbContext(services, configuration);
         ConfigureIoC(services);
         AddIdentity(services);
-        AddInfrastructureJWT(services, configuration);
+        //AddInfrastructureJWT(services, configuration);
         AddSwagger(services);
     }
 
@@ -96,7 +96,8 @@ public static class DependencyInjection
 
     private static void AddMappers(IServiceCollection services)
     {
-        services.AddAutoMapper(typeof(DomainToDtoMappingProfile));
+        services.AddAutoMapper(typeof(ClinicMappingProfile));
+        services.AddAutoMapper(typeof(HealthInsuranceMappingProfile));
     }
 
     private static void AddSwagger(IServiceCollection services)

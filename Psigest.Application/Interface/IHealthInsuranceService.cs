@@ -1,12 +1,12 @@
-using Psigest.Application.DTO;
+using Psigest.Application.DTO.HealthInsurance;
 
 namespace Psigest.Application.Interface;
 
 public interface IHealthInsuranceService
 {
-    Task<IEnumerable<HealthInsuranceDto>> GetHealthInsurances();
-    Task<HealthInsuranceDto> GetHealthInsuranceById(Guid id);    
-    Task<HealthInsuranceDto> CreateHealthInsurance(HealthInsuranceDto healthInsurance);
-    Task<HealthInsuranceDto> UpdateHealthInsurance(HealthInsuranceDto healthInsurance);
+    Task<IEnumerable<HealthInsuranceGetDTO>> GetHealthInsurances();
+    Task<HealthInsuranceGetDTO> GetHealthInsuranceById(Guid id);    
+    Task<HealthInsuranceGetDTO> CreateHealthInsurance(HealthInsuranceCreateDTO healthInsurance);
+    Task<HealthInsuranceGetDTO> UpdateHealthInsurance(HealthInsuranceUpdateDTO healthInsurance);
     Task DeleteHealthInsurance(Guid id);
 }
